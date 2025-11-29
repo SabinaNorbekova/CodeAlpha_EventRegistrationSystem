@@ -1,0 +1,34 @@
+{
+  "name": "codealpha_eventregistrationsystem",
+  "version": "1.0.0",
+  "description": "TASK 2: Event Registration System",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SabinaNorbekova/CodeAlpha_EventRegistrationSystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SabinaNorbekova/CodeAlpha_EventRegistrationSystem/issues"
+  },
+  "homepage": "https://github.com/SabinaNorbekova/CodeAlpha_EventRegistrationSystem#readme",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nanoid": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "prettier": "^3.6.2",
+    "prisma": "^5.22.0"
+  }
+}
