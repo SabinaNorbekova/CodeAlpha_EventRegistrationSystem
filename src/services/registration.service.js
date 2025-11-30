@@ -1,14 +1,19 @@
-import { parse } from 'dotenv';
 import prisma from '../config/db.js';
 
 export const registerForEvent = async (userId, eventId) => {
+  const user = await prisma.user.findUnique({
+    where: { id: parseInt(userId) },
+  });
+
+  if (!user) {
+    throw new Error('User not found');
+  }
+
   const event = await prisma.event.findUnique({
     where: { id: parseInt(eventId) },
     include: {
       _count: {
-        select: {
-          registrations: true,
-        },
+        select: { registrations: true },
       },
     },
   });
@@ -56,17 +61,10 @@ export const getAllRegistrations = async () => {
   return await prisma.registration.findMany({
     include: {
       user: {
-        select: {
-          fullName: true,
-          email: true,
-        },
-        event: {
-          select: {
-            title: true,
-            date: true,
-            location: true,
-          },
-        },
+        select: { fullName: true, email: true },
+      },
+      event: {
+        select: { title: true, date: true, location: true },
       },
     },
   });

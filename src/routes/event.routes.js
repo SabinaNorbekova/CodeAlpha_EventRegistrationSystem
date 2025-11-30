@@ -3,6 +3,7 @@ import {
   getEventById,
   getAllEvents,
   createEvent,
+  updateEvent,
   deleteEvent,
 } from '../controllers/event.controller.js';
 
@@ -12,5 +13,6 @@ router.post('/', createEvent);
 router.get('/', getAllEvents);
 router.get('/:id', getEventById);
 router.delete('/:id', deleteEvent);
+router.put('/:id', updateEvent);
 
 export { router as eventRouter };

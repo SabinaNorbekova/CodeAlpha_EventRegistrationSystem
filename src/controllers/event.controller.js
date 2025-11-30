@@ -50,6 +50,19 @@ export const getEventById = async (req, res) => {
   }
 };
 
+export const updateEvent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+
+    const updatedEvent = await eventService.updateEvent(id, data);
+    res.json(updatedEvent);
+  } catch (error) {
+    console.error('Update Error:', error);
+    res.status(500).json({ error: 'Could not update event' });
+  }
+};
+
 export const deleteEvent = async (req, res) => {
   try {
     const { id } = req.params;
