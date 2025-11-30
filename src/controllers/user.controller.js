@@ -59,7 +59,7 @@ export const updateUser = async (req, res) => {
     const data = req.body;
 
     const updatedUser = await userService.updateUser(id, data);
-    res.json(updateUser);
+    res.json(updatedUser);
   } catch (error) {
     if (error.code === 'P2002') {
       return res.status(409).json({

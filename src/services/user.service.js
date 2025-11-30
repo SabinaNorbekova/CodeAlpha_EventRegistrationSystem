@@ -6,7 +6,7 @@ export const createUser = async (fullName, email) => {
   });
 
   if (existingUser) {
-    throw new Error('User with this email already exsts');
+    throw new Error('User with this email already exists');
   }
 
   return prisma.user.create({
@@ -44,8 +44,8 @@ export const updateUser = async (id, data) => {
   return await prisma.user.update({
     where: { id: parseInt(id) },
     data: {
-      fullName: data.fullName,
-      email: data.email,
+      fullName: data.fullName || undefined,
+      email: data.email || undefined,
     },
   });
 };
